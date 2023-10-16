@@ -5,7 +5,8 @@
 import pytest
 
 
-from black_baud_sdk import black_baud_sdk
+from black_baud_sdk.models.EducationManagement.School.Academics.AcademicsParams import AcademicsAssignmentsBySectionParams
+from black_baud_sdk.black_baud_sdk import BlackBaud
 
 
 @pytest.fixture
@@ -22,3 +23,6 @@ def test_content(response):
     """Sample pytest test function with the pytest fixture as an argument."""
     # from bs4 import BeautifulSoup
     # assert 'GitHub' in BeautifulSoup(response.content).title.string
+    bb = BlackBaud()
+    data = bb.list_assignments_by_section(AcademicsAssignmentsBySectionParams(section_id=2))
+    print(f'{data}')
